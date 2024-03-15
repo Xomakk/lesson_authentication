@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Посты пользователей</h1>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.text }}</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="card-text text-secondary">Дата публикации: {{ post.created_at }}</p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p class="card-text">Автор: {{ post.author_username }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
